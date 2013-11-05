@@ -21,6 +21,7 @@ namespace BetaWP7._1_ver2
     {
         GeoCoordinateWatcher geoWatcher = null;
         bool GPSorWybor=true; //true  to wpisywanie, false to gps
+        public String miasto=null;
         GeoCoordinate currentLocation=null;
         // Constructor
         public MainPage()
@@ -49,17 +50,14 @@ namespace BetaWP7._1_ver2
             if (temp.Text=="gps")
             {
                 Debug.WriteLine("GiePeEs z appbaru guziczkowego");
-
-                //<TextBlock x:Name="podajMiasto" Text="podaj miasto" Margin="{StaticResource PhoneMargin}" FontSize="{StaticResource PhoneFontSizeMedium}" FontFamily="{StaticResource PhoneFontFamilyLight}" Foreground="{StaticResource PhoneSubtleBrush}"/>
-                //<TextBox x:Name="miastoTB" />
-                //<Button x:Name="GPSbtn" Content="GPS"/>
-                //<TextBlock x:Name="GPSTB" Foreground="{StaticResource PhoneSubtleBrush}" FontSize="{StaticResource PhoneFontSizeMedium}" FontFamily="{StaticResource PhoneFontFamilyLight}"  />
-                //<Button x:Name="OKbtn" Content="dalej"/>
                 this.wlaczGPS.Visibility=Visibility.Visible;
                 this.GPSbtn.Visibility=Visibility.Visible;
                 this.GPSTB.Visibility=Visibility.Visible;
                 this.podajMiasto.Visibility=Visibility.Collapsed;
                 this.miastoTB.Visibility=Visibility.Collapsed;
+                if (this.GPSorWybor==false)
+                    this.GPSorWybor=true;
+
             }
             else if (temp.Text=="miasto")
             {
@@ -69,6 +67,8 @@ namespace BetaWP7._1_ver2
                 this.wlaczGPS.Visibility=Visibility.Collapsed;
                 this.GPSbtn.Visibility=Visibility.Collapsed;
                 this.GPSTB.Visibility=Visibility.Collapsed;
+                if (this.GPSorWybor)
+                    this.GPSorWybor=false;
             }
         }
 
@@ -81,8 +81,22 @@ namespace BetaWP7._1_ver2
             else
             {
                 Debug.WriteLine(currentLocation.Latitude.ToString()+" "+currentLocation.Longitude.ToString());
+                this.miasto=currentLocation.Latitude.ToString("0.0000")+","+currentLocation.Longitude.ToString("0.0000");
             }
-            this.GPSTB.Text=currentLocation.Latitude.ToString()+" "+currentLocation.Longitude.ToString();
+            this.GPSTB.Text=currentLocation.Latitude.ToString("0.0000")+" "+currentLocation.Longitude.ToString("0.0000");
+        }
+
+        private void OKbtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.GPSorWybor) //czyli wybrany GPS
+            {
+                NavigationService.Navigate(new Uri("/Pogoda.xaml?msg="+this.miasto, UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                this.miasto=this.miastoTB.Text;
+                NavigationService.Navigate(new Uri("/Pogoda.xaml?msg="+this.miasto, UriKind.RelativeOrAbsolute));
+            }
         }
 
 

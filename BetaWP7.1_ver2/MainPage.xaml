@@ -16,10 +16,10 @@
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
             <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="gps" Click="ApplicationBarIconButton_Click" x:Name="GPSappBtn"/>
             <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="miasto" Click="ApplicationBarIconButton_Click" x:Name="MiastoAppBtn"/>
-            <shell:ApplicationBar.MenuItems>
+            <!--<shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="GPS" x:Name="GPSappBar"/>
                 <shell:ApplicationBarMenuItem Text="miasto" x:Name="MiastoAppBar"/>
-            </shell:ApplicationBar.MenuItems>
+            </shell:ApplicationBar.MenuItems>-->
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -39,11 +39,11 @@
         <StackPanel x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
             <TextBlock x:Name="podajMiasto" Text="podaj miasto" Margin="{StaticResource PhoneMargin}" FontSize="{StaticResource PhoneFontSizeMedium}" FontFamily="{StaticResource PhoneFontFamilyLight}" Foreground="{StaticResource PhoneSubtleBrush}" Visibility="Collapsed"/>
-            <TextBox x:Name="miastoTB" Visibility="Collapsed"/>
+            <TextBox x:Name="miastoTB" Visibility="Collapsed" InputScope="AddressCity"/>
             <TextBlock x:Name="wlaczGPS" Text="Naciśnij, aby pobrać dane GPS" FontSize="{StaticResource PhoneFontSizeMedium}" FontFamily="{StaticResource PhoneFontFamilyLight}" Foreground="{StaticResource PhoneSubtleBrush}" Visibility="Collapsed" />
             <Button x:Name="GPSbtn" Content="GPS" Visibility="Collapsed" Click="GPSbtn_Click"/>
             <TextBlock x:Name="GPSTB" Foreground="{StaticResource PhoneSubtleBrush}" FontSize="{StaticResource PhoneFontSizeMedium}" FontFamily="{StaticResource PhoneFontFamilyLight}" Visibility="Collapsed" />
-            <Button x:Name="OKbtn" Content="dalej" Visibility="Collapsed"/>
+            <Button x:Name="OKbtn" Content="dalej" Visibility="Collapsed" Click="OKbtn_Click"/>
         </StackPanel>
     </Grid>
  
