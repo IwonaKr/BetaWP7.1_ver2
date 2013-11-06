@@ -232,7 +232,7 @@ namespace BetaWP7._1_ver2
                         b.opady.Text="Opady: "+hf.qpf;
                         b.temperatura.Text="Temp: "+hf.tempC+"C";
                         ImageSource imgSrc;
-                        if (hf.czas.Hour<=6 || hf.czas.Hour>=22)
+                        if (hf.czas.Hour<=astronomy.sunrise.Hour || hf.czas.Hour>=astronomy.sunset.Hour)
                         {
                             imgSrc = new BitmapImage(new Uri("Icons/nt_"+hf.icon+".png", UriKind.Relative));
                         }
