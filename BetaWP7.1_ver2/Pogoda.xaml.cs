@@ -40,6 +40,11 @@ namespace BetaWP7._1_ver2
                 if (msg.Contains(","))
                 {
                     mess=msg;
+                    var cos = mess.Split(',');
+                    if (cos.Length==4)
+                    {
+                        mess=cos[0]+"."+cos[1]+","+cos[2]+"."+cos[3];
+                    }
                     this.miasto="GPS: "+msg;
                     Debug.WriteLine("GPS");
                     czyToGPS=true;
