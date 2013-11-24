@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.Serialization;
+using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +26,9 @@ namespace BetaWP7._1_ver2
         public static List<ForecastDay> SFDay = new List<ForecastDay>(); //SimpleForecast
         public static List<HourlyForecast> HourlyForecast = new List<HourlyForecast>();
         public static Astronomy astronomy;
+
+
+        public XDocument doc=null;
 
         public Pogoda()
         {
@@ -80,7 +85,7 @@ namespace BetaWP7._1_ver2
             {
                 weather = e.Result;
                 XmlReader reader = XmlReader.Create(new StringReader(weather));
-                XDocument doc = XDocument.Load(reader);
+                doc = XDocument.Load(reader);
                 obrabianieConditions(doc);
 
 
@@ -139,6 +144,18 @@ namespace BetaWP7._1_ver2
 
                 Debug.WriteLine("Moonrise: "+astronomy.moonrise.ToShortTimeString()+",Moonset: "+astronomy.moonset.ToShortTimeString());
                 Debug.WriteLine("Sunrise: "+astronomy.sunrise.ToShortTimeString()+", Sunset: "+astronomy.sunset.ToShortTimeString());
+
+                var zwrocone = Serialize(astronomy);
+                Debug.WriteLine(zwrocone.GetType().ToString());
+
+                var obdzekt = Deserialize<Astronomy>(zwrocone, astronomy.GetType());
+                Debug.WriteLine(obdzekt.GetType().ToString()+" "+obdzekt.phaseOfMoon);
+
+                
+
+
+
+                
 
                 var hourly_forecast = (from d in doc.Descendants()
                                        where (d.Name.LocalName=="hourly_forecast")
@@ -261,6 +278,21 @@ namespace BetaWP7._1_ver2
                     this.textBox1.Text=ex.Message;
                     this.ikonka.Source=null;
                 });
+            }
+            costam();
+        }
+
+        public static void costam()
+        {
+
+
+            var poooooo = Serialize(dni2);
+            Debug.WriteLine(poooooo.ToString());
+
+            var toCoZwrocil = Deserialize<List<ForecastDay>>(poooooo, typeof(List<ForecastDay>));
+            foreach (var item in toCoZwrocil)
+            {
+                Debug.WriteLine(item.icon);
             }
         }
 
@@ -441,6 +473,30 @@ namespace BetaWP7._1_ver2
                     this.glownyStackPanel.Children.Add(oDniu);
                     this.glownyStackPanel.Children.Add(tb);
                 });
+            }
+        }
+
+        public static string Serialize(object obj)
+        {
+            using (MemoryStream memoryStream = new MemoryStream())
+            using (StreamReader reader = new StreamReader(memoryStream))
+            {
+                DataContractSerializer serializer = new DataContractSerializer(obj.GetType());
+                serializer.WriteObject(memoryStream, obj);
+                memoryStream.Position=0;
+                return reader.ReadToEnd();
+            }
+        }
+
+        public static T Deserialize<T>(string xml, Type toType)
+        {
+            using (Stream stream = new MemoryStream())
+            {
+                byte[] data = System.Text.Encoding.UTF8.GetBytes(xml);
+                stream.Write(data, 0, data.Length);
+                stream.Position=0;
+                DataContractSerializer deserializer = new DataContractSerializer(toType);
+                return (T)deserializer.ReadObject(stream);
             }
         }
     }
