@@ -110,123 +110,167 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Icons\chanceflurries.png">
+    <Content Include="chanceflurries.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="chancerain.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="chancesleet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="chancesnow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="chancetstorms.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="clear.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="cloudy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="flurries.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\chancerain.png">
+    <Resource Include="fog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\chancesleet.png">
+    <Resource Include="hazy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\chancesnow.png">
+    <Resource Include="mostlycloudy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\chancetstorms.png">
+    <Resource Include="mostlysunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\clear.png">
+    <Resource Include="nt_chanceflurries.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\cloudy.png">
+    <Resource Include="nt_chancerain.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\flurries.png">
+    <Resource Include="nt_chancesleet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\fog.png">
+    <Resource Include="nt_chancesnow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\hazy.png">
+    <Resource Include="nt_chancetstorms.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\mostlycloudy.png">
+    <Resource Include="nt_clear.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\mostlysunny.png">
+    <Resource Include="nt_cloudy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_chanceflurries.png">
+    <Resource Include="nt_flurries.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_chancerain.png">
+    <Resource Include="nt_fog.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_chancesleet.png">
+    <Resource Include="nt_hazy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_chancesnow.png">
+    <Resource Include="nt_mostlycloudy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_chancetstorms.png">
+    <Resource Include="nt_mostlysunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_clear.png">
+    <Resource Include="nt_partlycloudy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_cloudy.png">
+    <Resource Include="nt_partlysunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_flurries.png">
+    <Resource Include="nt_rain.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_fog.png">
+    <Resource Include="nt_sleet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_hazy.png">
+    <Resource Include="nt_snow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_mostlycloudy.png">
+    <Resource Include="nt_sunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_mostlysunny.png">
+    <Resource Include="nt_tstorms.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_partlycloudy.png">
+    <Resource Include="partlycloudy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_partlysunny.png">
+    <Resource Include="partlysunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_rain.png">
+    <Resource Include="rain.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_sleet.png">
+    <Resource Include="sleet.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_snow.png">
+    <Resource Include="snow.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_sunny.png">
+    <Resource Include="sunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\nt_tstorms.png">
+    <Resource Include="tstorms.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\partlycloudy.png">
+    <Resource Include="wait.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Icons\partlysunny.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\rain.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\sleet.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\snow.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\sunny.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\tstorms.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icons\wait.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <Content Include="Icons\chanceflurries.png" />
+    <Content Include="Icons\chancerain.png" />
+    <Content Include="Icons\chancesleet.png" />
+    <Content Include="Icons\chancesnow.png" />
+    <Content Include="Icons\chancetstorms.png" />
+    <Content Include="Icons\clear.png" />
+    <Content Include="Icons\cloudy.png" />
+    <Content Include="Icons\flurries.png" />
+    <Content Include="Icons\fog.png" />
+    <Content Include="Icons\hazy.png" />
+    <Content Include="Icons\mostlycloudy.png" />
+    <Content Include="Icons\mostlysunny.png" />
+    <Content Include="Icons\nt_chanceflurries.png" />
+    <Content Include="Icons\nt_chancerain.png" />
+    <Content Include="Icons\nt_chancesleet.png" />
+    <Content Include="Icons\nt_chancesnow.png" />
+    <Content Include="Icons\nt_chancetstorms.png" />
+    <Content Include="Icons\nt_clear.png" />
+    <Content Include="Icons\nt_cloudy.png" />
+    <Content Include="Icons\nt_flurries.png" />
+    <Content Include="Icons\nt_fog.png" />
+    <Content Include="Icons\nt_hazy.png" />
+    <Content Include="Icons\nt_mostlycloudy.png" />
+    <Content Include="Icons\nt_mostlysunny.png" />
+    <Content Include="Icons\nt_partlycloudy.png" />
+    <Content Include="Icons\nt_partlysunny.png" />
+    <Content Include="Icons\nt_rain.png" />
+    <Content Include="Icons\nt_sleet.png" />
+    <Content Include="Icons\nt_snow.png" />
+    <Content Include="Icons\nt_sunny.png" />
+    <Content Include="Icons\nt_tstorms.png" />
+    <Content Include="Icons\nt_unknown.png" />
+    <Content Include="Icons\partlycloudy.png" />
+    <Content Include="Icons\partlysunny.png" />
+    <Content Include="Icons\rain.png" />
+    <Content Include="Icons\sleet.png" />
+    <Content Include="Icons\snow.png" />
+    <Content Include="Icons\sunny.png" />
+    <Content Include="Icons\tstorms.png" />
+    <Content Include="Icons\unknown.png" />
+    <Content Include="Icons\wait.png" />
+    <Content Include="Images\About.png" />
+    <Content Include="Images\GPS.png" />
+    <Content Include="Images\Write.png" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

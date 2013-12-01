@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Net;
 using System.Runtime.Serialization;
@@ -17,14 +20,14 @@ using Microsoft.Phone.Controls;
 
 namespace BetaWP7._1_ver2
 {
-    public partial class Pogoda : PhoneApplicationPage
+    public partial class Pogoda : PhoneApplicationPage,INotifyPropertyChanged
     {
         public string miasto=null;
         public bool czyToGPS; //true GPS, false - miasto
         public static string mess; //potrzebne do linka
         public static List<ForecastDay> dni2= new List<ForecastDay>(); //txt_forecast
         public static List<ForecastDay> SFDay = new List<ForecastDay>(); //SimpleForecast
-        public static List<HourlyForecast> HourlyForecast = new List<HourlyForecast>();
+        public static ObservableCollection<HourlyForecast> HourlyForecast = new ObservableCollection<HourlyForecast>();
         public static Astronomy astronomy;
 
 
@@ -33,6 +36,8 @@ namespace BetaWP7._1_ver2
         public Pogoda()
         {
             InitializeComponent();
+            godzinowaLB.DataContext=HourlyForecast;
+
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -81,8 +86,8 @@ namespace BetaWP7._1_ver2
         {
             //throw new NotImplementedException();
             string weather="";
-            try
-            {
+            //try
+            //{
                 weather = e.Result;
                 XmlReader reader = XmlReader.Create(new StringReader(weather));
                 doc = XDocument.Load(reader);
@@ -194,6 +199,8 @@ namespace BetaWP7._1_ver2
                     Debug.WriteLine(hf.czas.ToLongDateString()+" "+hf.czas.ToLocalTime()+" "+hf.weekdayNameAbbrev+" "+hf.monthAbbrev);
                     hf.condition=item.Element("condition").Value;
                     hf.icon=item.Element("icon").Value;
+                    ///Dodane żeby było dobrze wyświetlane
+                    hf.icon+=".png";
                     hf.iconUrl=item.Element("icon_url").Value;
                     hf.sky=item.Element("sky").Value;
                     hf.humidity=item.Element("humidity").Value;
@@ -242,8 +249,11 @@ namespace BetaWP7._1_ver2
                     hf.pressure=(((from d in item.Descendants()
                                    where d.Name.LocalName=="mslp"
                                    select d).FirstOrDefault()).Element("metric").Value);
-                    HourlyForecast.Add(hf);
                     Deployment.Current.Dispatcher.BeginInvoke(() =>
+                    {
+                        HourlyForecast.Add(hf);
+                    });
+                    /*Deployment.Current.Dispatcher.BeginInvoke(() =>
                     {
                         System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("pl-PL");
                         System.Threading.Thread.CurrentThread.CurrentCulture = ci;
@@ -265,26 +275,28 @@ namespace BetaWP7._1_ver2
 
                         b.ikonka.Source=imgSrc;
                         hStackPanel.Children.Add(b);
+                    });*/
+                    Deployment.Current.Dispatcher.BeginInvoke(() =>
+                    {
                     });
                 }
 
 
-            }
-            catch (Exception ex)
-            {
-                Deployment.Current.Dispatcher.BeginInvoke(() =>
-                {
-                    MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK);
-                    this.textBox1.Text=ex.Message;
-                    this.ikonka.Source=null;
-                });
-            }
-            costam();
+            //}
+            //catch (Exception ex)
+            //{
+            //    Deployment.Current.Dispatcher.BeginInvoke(() =>
+            //    {
+            //        MessageBox.Show(ex.Message, "Błąd", MessageBoxButton.OK);
+            //        this.textBox1.Text=ex.Message;
+            //        this.ikonka.Source=null;
+            //    });
+            //}
+            //costam(); //PAMIĘĆ 
         }
 
         public static void costam()
         {
-
 
             var poooooo = Serialize(dni2);
             Debug.WriteLine(poooooo.ToString());
@@ -293,6 +305,17 @@ namespace BetaWP7._1_ver2
             foreach (var item in toCoZwrocil)
             {
                 Debug.WriteLine(item.icon);
+            }
+
+            IsolatedStorageSettings localStorage = IsolatedStorageSettings.ApplicationSettings;
+            localStorage.Add("dni1", dni2);
+            localStorage.Save();
+
+
+            var ccc = localStorage["dni1"] as List<ForecastDay>;
+            foreach (var item in ccc)
+            {
+                Debug.WriteLine(item.iconUrl);
             }
         }
 
@@ -499,5 +522,7 @@ namespace BetaWP7._1_ver2
                 return (T)deserializer.ReadObject(stream);
             }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

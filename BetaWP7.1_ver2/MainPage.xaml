@@ -14,8 +14,8 @@
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="gps" Click="ApplicationBarIconButton_Click" x:Name="GPSappBtn"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="miasto" Click="ApplicationBarIconButton_Click" x:Name="MiastoAppBtn"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/GPS.png" Text="gps" Click="ApplicationBarIconButton_Click" x:Name="GPSappBtn"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/Write.png" Text="miasto" Click="ApplicationBarIconButton_Click" x:Name="MiastoAppBtn"/>
             <!--<shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="GPS" x:Name="GPSappBar"/>
                 <shell:ApplicationBarMenuItem Text="miasto" x:Name="MiastoAppBar"/>

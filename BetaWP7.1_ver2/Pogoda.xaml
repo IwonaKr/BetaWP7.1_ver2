@@ -29,12 +29,29 @@
                 </ScrollViewer>
             </controls:PivotItem>
 
-            <controls:PivotItem Header="godzinowa">
+            <!--<controls:PivotItem Header="godzinowa">
                 <ScrollViewer>
                     <StackPanel x:Name="hStackPanel">
 
                     </StackPanel>
                 </ScrollViewer>
+            </controls:PivotItem>-->
+            <controls:PivotItem Header="godzinowa">
+                <ListBox x:Name="godzinowaLB" ItemsSource="{Binding}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="{StaticResource PhoneMargin}">
+                                <Image x:Name="ikonka2" Source="{Binding icon}" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="10"/>
+                                <TextBlock Text="{Binding czas}" x:Name="godzina" HorizontalAlignment="Left" Margin="125,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Foreground="{StaticResource PhoneContrastBackgroundBrush}" FontFamily="{StaticResource PhoneFontFamilyNormal}" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+                                <TextBlock Text="{Binding tempC}" x:Name="temperatura" HorizontalAlignment="Left" Margin="250,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="{StaticResource PhoneFontSizeNormal}"/>
+                                <TextBlock Text="{Binding qpf}" x:Name="opady" HorizontalAlignment="Left" Margin="125,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <TextBlock Text="{Binding weekdayNameAbbrev}" x:Name="dzien" HorizontalAlignment="Left" Margin="250,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" FontSize="{StaticResource PhoneFontSizeMedium}"/>
+                                <TextBlock Text="{Binding condition}" x:Name="warunki" HorizontalAlignment="Left" Margin="125,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="345"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </controls:PivotItem>
 
             <!--Pivot item two-->
